@@ -5,7 +5,6 @@
     "NODE_ENV": "production"
   },
   "framework": "vite",
-  "nodeVersion": "20.x",
   "functions": {
     "dist/index.js": {
       "memory": 1024,
