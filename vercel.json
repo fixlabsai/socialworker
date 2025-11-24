@@ -3,5 +3,5 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "framework": "vite",
+  "framework": "vite"
 }
