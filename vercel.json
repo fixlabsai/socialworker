@@ -4,6 +4,5 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "framework": "vite",
-  "nodeVersion": "20.x"
+  "framework": "vite"
 }
