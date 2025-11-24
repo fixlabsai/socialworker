@@ -6,7 +6,9 @@ import express, { type Express } from "express";
 import runApp from "./app";
 
 export async function serveStatic(app: Express, _server: Server) {
-  const distPath = path.resolve(import.meta.dirname, "public");
+  // In production, static files are in dist/public (relative to project root)
+  // When running from dist/index.js, we need to go up one level
+  const distPath = path.resolve(import.meta.dirname, "../public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
