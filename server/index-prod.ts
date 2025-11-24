@@ -6,21 +6,41 @@ import express, { type Express } from "express";
 import runApp from "./app";
 
 export async function serveStatic(app: Express, _server: Server) {
-  // In production, static files are in dist/public (relative to project root)
-  // When running from dist/index.js, we need to go up one level
-  const distPath = path.resolve(import.meta.dirname, "../public");
+  // Try multiple possible locations for the built frontend
+  let distPath: string;
+  
+  const possiblePaths = [
+    // When running from dist/index.js
+    path.resolve(import.meta.dirname, "../public"),
+    // When running from project root
+    path.resolve("./dist/public"),
+    // Fallback
+    path.resolve(process.cwd(), "dist", "public"),
+  ];
+
+  distPath = possiblePaths.find(p => fs.existsSync(p)) || possiblePaths[0];
 
   if (!fs.existsSync(distPath)) {
-    throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
+    console.warn(
+      `Frontend build directory not found at: ${distPath}\nTried: ${possiblePaths.join(", ")}`,
     );
   }
 
-  app.use(express.static(distPath));
+  app.use(express.static(distPath, {
+    setHeaders: (res) => {
+      res.setHeader("Cache-Control", "public, max-age=3600");
+    },
+  }));
 
   // fall through to index.html if the file doesn't exist
   app.use("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
+    const indexPath = path.resolve(distPath, "index.html");
+    if (fs.existsSync(indexPath)) {
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.sendFile(indexPath);
+    } else {
+      res.status(404).send("Frontend build not found");
+    }
   });
 }
 
