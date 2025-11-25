@@ -128,7 +128,7 @@ export default function ContactSection() {
                     <div>
                       <div className="font-semibold mb-1">Email</div>
                       <div className="text-sm text-muted-foreground">
-                        president@greenvalleyrwa.com
+                        hello@deepakkumar.com
                       </div>
                     </div>
                   </div>
@@ -137,7 +137,7 @@ export default function ContactSection() {
                     <div>
                       <div className="font-semibold mb-1">Phone</div>
                       <div className="text-sm text-muted-foreground">
-                        +91 98765 43210
+                        +91 98116 65655
                       </div>
                     </div>
                   </div>
@@ -146,9 +146,9 @@ export default function ContactSection() {
                     <div>
                       <div className="font-semibold mb-1">Address</div>
                       <div className="text-sm text-muted-foreground">
-                        Green Valley Residency<br />
-                        Sector 15, New Delhi<br />
-                        Delhi 110001
+                        Amrapali Village Apartments<br />
+                        Indirapuram, Ghaziabad<br />
+                        U.P. 201014
                       </div>
                     </div>
                   </div>

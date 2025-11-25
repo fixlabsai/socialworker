@@ -47,7 +47,7 @@ export default function HeroSection() {
           </Button>
         </div>
         <p className="mt-8 text-white/80 text-sm" data-testid="text-serving-since">
-          Serving Green Valley Residency since 2018
+          Serving Amrapali Village Apartments since 2017
         </p>
       </div>
     </section>

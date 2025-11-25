@@ -34,7 +34,7 @@ export default function PresidentMessage() {
                 Deepak Kumar
               </div>
               <div className="text-sm text-muted-foreground" data-testid="text-president-designation">
-                President, Green Valley RWA
+                President, Federation of Association of Apartment Owners Ghaziabad
               </div>
             </div>
           </div>
