@@ -24,7 +24,14 @@ export default function Footer() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  
+  const socialLinks = {
+    twitter: "https://x.com/deepak_kumar018",
+    facebook: "https://www.facebook.com/people/Deepak-Kumar/pfbid02k6qNBTAzPyfwa6nB1ggPTbrgCShzEDEeaKg4ZDYsM5VAa8RisHZsBCBDctL6rNDzl/",
+    instagram: "#",
+    linkedin: "#"
+  };
+  
   return (
     <footer className="bg-muted/50 border-t">
       <div className="max-w-7xl mx-auto px-6 py-12">
@@ -105,21 +112,29 @@ export default function Footer() {
 
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground" data-testid="text-copyright">
-            © 2025 Green Valley RWA. All rights reserved.
+            © 2025 Deepak Kumar. All rights reserved.
           </p>
           <div className="flex gap-2">
+            <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" data-testid="button-facebook">
               <Facebook className="h-5 w-5" />
             </Button>
+            </a>
+            <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" data-testid="button-twitter">
               <Twitter className="h-5 w-5" />
             </Button>
+            </a>
+            <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" data-testid="button-instagram">
               <Instagram className="h-5 w-5" />
             </Button>
+            </a>
+            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" data-testid="button-linkedin">
               <Linkedin className="h-5 w-5" />
             </Button>
+            </a>
           </div>
         </div>
       </div>
