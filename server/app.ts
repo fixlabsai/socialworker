@@ -22,6 +22,40 @@ export function log(message: string, source = "express") {
 
 export const app = express();
 
+// CORS configuration for cross-origin requests from Netlify frontend
+const corsOptions = {
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:5000",
+    "http://localhost:8888",
+    process.env.FRONTEND_URL || "",
+    process.env.NETLIFY_SITE_URL || "",
+  ].filter(Boolean),
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin || "";
+  if (
+    origin.includes("localhost") ||
+    origin.includes("netlify.app") ||
+    origin.includes("onrender.com")
+  ) {
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,PATCH,OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+  }
+  
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  
+  next();
+});
+
 declare module 'http' {
   interface IncomingMessage {
     rawBody: unknown
