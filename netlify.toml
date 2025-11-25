@@ -9,4 +9,4 @@
 
 [env]
   [env.production]
-    VITE_API_URL = "https://your-app-name.onrender.com"
+    VITE_API_URL = "https://socialworker-api.onrender.com"
