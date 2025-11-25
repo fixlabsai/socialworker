@@ -11,20 +11,51 @@ export default function YouTubeSection() {
   // Add your YouTube video IDs here
   const videos: Video[] = [
     {
-      id: "dQw4w9WgXcQ",
-      title: "Community Service Initiative 2024",
-      description: "Highlights from our latest community outreach program"
+      id: "6Aw10fLPaxU",
+      title: "High Rise Societies Are New Covid Hotspots",
+      description: "High Rise Societies Are New Covid Hotspots"
     },
     {
-      id: "jNQXAC9IVRw",
-      title: "Annual Charity Event",
-      description: "Coverage of this year's major charity fundraiser"
+      id: "bt1RZSAR7R4",
+      title: "The Federation President Ghaziabad",
+      description: "Let's experience the best ways to run RWA smoothly"
     },
     {
-      id: "9bZkp7q19f0",
+      id: "7XhAWo_0fqc",
+      title: "Social Welfare Success Stories",
+      description: "Real stories from families we've helped"
+    },
+    {
+      id: "15GHjTZyOX4",
+      title: "Social Welfare Success Stories",
+      description: "Real stories from families we've helped"
+    },
+    {
+      id: "Hip-gyQkWJ0",
+      title: "Social Welfare Success Stories",
+      description: "Real stories from families we've helped"
+    },
+    {
+      id: "uikgoOLbDWo",
+      title: "Social Welfare Success Stories",
+      description: "Real stories from families we've helped"
+    },
+    {
+      id: "qShjkSvSqlg",
+      title: "Social Welfare Success Stories",
+      description: "Real stories from families we've helped"
+    },
+    {
+      id: "eX3lGpOCs00",
+      title: "Social Welfare Success Stories",
+      description: "Real stories from families we've helped"
+    },
+    {
+      id: "J1Z_jf7lNsU",
       title: "Social Welfare Success Stories",
       description: "Real stories from families we've helped"
     }
+    
   ];
 
   return (
