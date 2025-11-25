@@ -105,7 +105,7 @@ export default function Footer() {
 
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground" data-testid="text-copyright">
-            © 2025 Green Valley RWA. All rights reserved.
+            © 2025 Deepak Kumar. All rights reserved.
           </p>
           <div className="flex gap-2">
             <Button variant="ghost" size="icon" data-testid="button-facebook">
