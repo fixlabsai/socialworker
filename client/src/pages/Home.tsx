@@ -19,6 +19,7 @@ export default function Home() {
         <PresidentMessage />
         <EventsTimeline />
         <Testimonials />
+        <YouTubeSection />
         <ContactSection />
       </main>
       <Footer />
