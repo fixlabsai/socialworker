@@ -99,15 +99,6 @@ export default function YouTubeSection() {
             </Card>
           ))}
         </div>
-
-        <div className="mt-12 p-8 bg-card rounded-lg border text-center">
-          <p className="text-muted-foreground mb-4">
-            Want to add more videos to showcase? Replace the YouTube video IDs in the YouTubeSection component.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Video IDs can be found in YouTube URLs: youtube.com/watch?v=<strong>VIDEO_ID_HERE</strong>
-          </p>
-        </div>
       </div>
     </section>
   );
