@@ -6,6 +6,27 @@ import express, { type Express } from "express";
 import runApp from "./app";
 
 export async function serveStatic(app: Express, _server: Server) {
+  // Skip serving frontend if SERVE_FRONTEND is explicitly set to false
+  // This is used when running on Render (backend only) or split deployments
+  const shouldServeFrontend = process.env.SERVE_FRONTEND !== "false";
+  
+  if (!shouldServeFrontend) {
+    console.log("[Static Files] Frontend serving disabled - API only mode");
+    
+    // Return 404 for all non-API routes
+    app.use("*", (req, res) => {
+      if (req.path.startsWith("/api")) {
+        res.status(404).json({ error: "API route not found" });
+      } else {
+        res.status(404).json({ 
+          error: "This is an API-only server. Frontend is served separately.",
+          hint: "This server only handles /api/* routes"
+        });
+      }
+    });
+    return;
+  }
+
   // Try multiple possible locations for the built frontend
   let distPath: string;
   
