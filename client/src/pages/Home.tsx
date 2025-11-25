@@ -5,6 +5,7 @@ import SocialInitiatives from "@/components/SocialInitiatives";
 import PresidentMessage from "@/components/PresidentMessage";
 import EventsTimeline from "@/components/EventsTimeline";
 import Testimonials from "@/components/Testimonials";
+import YouTubeSection from "@/components/YouTubeSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
