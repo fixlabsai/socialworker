@@ -1,5 +1,24 @@
 import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
+// Get API URL from environment or default to current origin
+const API_URL = import.meta.env.VITE_API_URL || "";
+
+function getFullUrl(path: string): string {
+  if (path.startsWith("http")) {
+    return path; // Already a full URL
+  }
+  
+  if (API_URL && !path.startsWith("/")) {
+    return `${API_URL}/api/${path}`;
+  }
+  
+  if (API_URL) {
+    return `${API_URL}${path}`;
+  }
+  
+  return path; // Use relative URL (same origin)
+}
+
 async function throwIfResNotOk(res: Response) {
   if (!res.ok) {
     const text = (await res.text()) || res.statusText;
@@ -12,7 +31,9 @@ export async function apiRequest(
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const res = await fetch(url, {
+  const fullUrl = getFullUrl(url);
+  
+  const res = await fetch(fullUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -29,7 +50,10 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey.join("/") as string, {
+    const path = queryKey.join("/") as string;
+    const fullUrl = getFullUrl(path);
+    
+    const res = await fetch(fullUrl, {
       credentials: "include",
     });
 
